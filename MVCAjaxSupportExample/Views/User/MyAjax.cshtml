@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "MyAjax";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    ViewBag.Title = "GetUser";
+
+    AjaxOptions ajaxOpts = new AjaxOptions
+    {
+        UpdateTargetId = "myContainer",
+        LoadingElementId = "GreenBox1"
+    };
+
+    AjaxOptions ajaxOpts2 = new AjaxOptions
+    {
+        UpdateTargetId = "myContainer2",
+        LoadingElementId = "GreenBox1"
+    };
+
+}
+
+<h2>MyAjax</h2>
+
+<div id="myContainer">
+    @using (Ajax.BeginForm("MyPartial", ajaxOpts))
+    {
+        <div>
+            <button id="button1" type="submit">Show Partial</button>
+        </div>
+    }
+
+</div>
+<br />
+<div>
+@Ajax.ActionLink("Show Partial 2", "MyPartial", ajaxOpts2)
+</div>
+<div id="myContainer2">
+</div>
+
+<div id="GreenBox1" style="background-color: chartreuse; width: 100px; height: 100px; position:relative;">
+</div>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 using MVCAjaxSupportExample.Models;
 using System.Collections;
+using System.Threading;
 
 namespace MVCAjaxSupportExample.Controllers
 {
@@ -42,5 +43,17 @@ namespace MVCAjaxSupportExample.Controllers
         {
             return View((object)selectedRole);
         }
+
+        public ActionResult MyAjax()
+        {
+            return View();
+        }
+
+        public PartialViewResult MyPartial()
+        {
+            Thread.Sleep(2000);
+            return PartialView();
+        }
+
     }
 }

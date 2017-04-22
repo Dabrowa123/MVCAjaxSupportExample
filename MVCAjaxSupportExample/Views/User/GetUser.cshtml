@@ -29,8 +29,17 @@
 @using (Ajax.BeginForm("GetUser", ajaxOpts))
 {
     <div>
-        @Html.DropDownList("selectedRole", new SelectList(
-      new[] { "All" }.Concat(Enum.GetNames(typeof(Role)))))
+        @Html.DropDownList("selectedRole", new SelectList(new[] { "All" }.Concat(Enum.GetNames(typeof(Role)))))
         <button type="submit">Submit</button>
     </div>
 }
+
+<br />
+<br />
+<br />
+
+<button onclick="location.href='@Url.Action("MyAjax","User")'">Next Page</button>
+
+
+
+
